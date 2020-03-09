@@ -8,7 +8,7 @@ window.addEventListener('load',()=>{
     let temperatureSection = document.querySelector('.temperature');
     let temperatureSpan = document.querySelector('.temperature span');
 
-    temperatureSpan.textContent = 'F'; // default temperature in Fahrenheit;
+   
     
     if(navigator.geolocation){
         navigator.geolocation.getCurrentPosition(position=>{
@@ -29,6 +29,8 @@ window.addEventListener('load',()=>{
                 temperatureDegree.textContent = temperature;
                 temperatureDescription.textContent = summary;
                 locationTimezone.textContent = data.timezone;
+                temperatureSpan.textContent = 'F'; // default temperature in Fahrenheit;
+                
                 //Set Icon
                 setIcons(icon,document.querySelector(".icon"));
 
