@@ -1,11 +1,11 @@
-'use strict';
+var http = require('http');
 
-// Start the server
-const PORT = process.env.PORT || 8080;
-app.listen(PORT, () => {
-  console.log(`App listening on port ${PORT}`);
-  console.log('Press Ctrl+C to quit.');
-});
+var nStatic = require('node-static');
 
-// [END gae_node_request_example]
-module.exports = app;
+var fileServer = new nStatic.Server('./');
+
+http.createServer(function (req, res) {
+    
+    fileServer.serve(req, res);
+
+}).listen(8080);
